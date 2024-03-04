@@ -1,0 +1,21 @@
+.gridjs-sort {
+    width: 0.5em;
+    height: 1.3em;
+    background-size: cover;
+    background-image: url(../../assets/sort.png);
+    background-position: center;
+    display: inline;
+    margin: 0 0 0 0.5em;
+}
+
+.gridjs-td {
+    text-align: center;
+}
+
+.gridjs-th-content {
+    display: inline;
+}
+
+.gridjs-pages {
+    margin: 1em;
+}
