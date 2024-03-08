@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit"
+import { mockEmployees } from '../data/mockEmployees'
 
-let initialState = { listOfEmployees: '' };
+let initialState = { listOfEmployees: mockEmployees };
 
 function reducer(state = initialState, action) {
     switch (action.type) {
