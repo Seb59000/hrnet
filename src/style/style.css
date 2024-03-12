@@ -31,12 +31,16 @@ table {
     width: 100%;
 }
 
+#table-container {
+    width: 100%;
+}
+
 th span {
-    margin-left: 0.1em;
+    margin-left: 0.2em;
 }
 
 tr:nth-child(even) {
-    background-color: #D6EEEE;
+    background-color: #ebebeb;
 }
 
 td {
@@ -45,8 +49,34 @@ td {
 
 .pagination {
     margin: 2em 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagination button {
+    height: 3em;
+    width: 6em;
 }
 
 #search {
     margin: 2em 0;
+}
+
+#tool-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#tool-container span {
+    align-self: center;
+}
+
+#page-index {
+    border: #8a8d8d solid 2px;
+    padding: 1em 1.2em;
+    border-radius: 0.4em;
+}
+
+#page-number {
+    margin: 0.5em 0;
 }

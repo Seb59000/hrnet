@@ -77,14 +77,30 @@ const TableReact = () => {
     const { globalFilter } = state;
 
     return (
-        <div>
-            <input
-                type="text"
-                placeholder="Search..."
-                value={globalFilter || ''}
-                onChange={(e) => setGlobalFilter(e.target.value)}
-                id="search"
-            />
+        <div id="table-container">
+            <div id="tool-container">
+                <span>Show <select
+                    value={pageSize}
+                    onChange={e => {
+                        setPageSize(Number(e.target.value))
+                    }}
+                >
+                    {[10, 25, 50, 100].map(pageSize => (
+                        <option key={pageSize} value={pageSize}>
+                            {pageSize}
+                        </option>
+                    ))}
+                </select> entries
+                </span>
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    value={globalFilter || ''}
+                    onChange={(e) => setGlobalFilter(e.target.value)}
+                    id="search"
+                />
+            </div>
+
             <table {...getTableProps()}>
                 <thead>
                     {headerGroups.map(headerGroup => (
@@ -121,36 +137,32 @@ const TableReact = () => {
                 </tbody>
             </table>
             <div className="pagination">
-                <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-                    {'<<'}
-                </button>{' '}
-                <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-                    {'<'}
-                </button>{' '}
-                <button onClick={() => nextPage()} disabled={!canNextPage}>
-                    {'>'}
-                </button>{' '}
-                <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-                    {'>>'}
-                </button>{' '}
-                <span>
+                <span id="page-number">
                     Page{' '}
                     <strong>
-                        {pageIndex + 1} of {pageOptions.length}
+                        {pageIndex + 1}
                     </strong>{' '}
+                    of {pageCount}
                 </span>
-                <select
-                    value={pageSize}
-                    onChange={e => {
-                        setPageSize(Number(e.target.value))
-                    }}
-                >
-                    {[10, 20, 30, 40, 50].map(pageSize => (
-                        <option key={pageSize} value={pageSize}>
-                            Show {pageSize}
-                        </option>
-                    ))}
-                </select>
+                <div>
+                    <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+                        {'Previous'}
+                    </button>{' '}
+                    <strong id="page-index">
+                        {pageIndex + 1}
+                    </strong>{' '}
+                    <button onClick={() => nextPage()} disabled={!canNextPage}>
+                        {'Next'}
+                    </button>{' '}
+                </div>
+                {/* <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+                    {'<<'}
+                </button>{' '} */}
+
+                {/* <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+                    {'>>'}
+                </button>{' '} */}
+
             </div>
         </div>
     );
