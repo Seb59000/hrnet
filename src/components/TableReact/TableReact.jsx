@@ -2,7 +2,7 @@ import { useStore, useSelector } from "react-redux";
 import { getEmployees } from '../../services/selectors'
 import React, { useMemo } from 'react';
 import { useTable, usePagination, useGlobalFilter, useSortBy } from 'react-table';
-import { RetrieveEmployees } from '../../services/EmployeeModel';
+// import { RetrieveEmployees } from '../../services/EmployeeModel';
 
 const columns = [
     {
