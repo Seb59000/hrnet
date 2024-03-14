@@ -1,8 +1,7 @@
-import { useStore, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getEmployees } from '../../services/selectors'
-import React, { useMemo } from 'react';
+import React from 'react';
 import { useTable, usePagination, useGlobalFilter, useSortBy } from 'react-table';
-// import { RetrieveEmployees } from '../../services/EmployeeModel';
 
 const columns = [
     {
@@ -56,9 +55,7 @@ const TableReact = () => {
         setGlobalFilter,
         canPreviousPage,
         canNextPage,
-        pageOptions,
         pageCount,
-        gotoPage,
         nextPage,
         previousPage,
         setPageSize,
@@ -106,11 +103,8 @@ const TableReact = () => {
                     {headerGroups.map(headerGroup => (
                         <tr {...headerGroup.getHeaderGroupProps()}>
                             {headerGroup.headers.map(column => (
-                                // Add the sorting props to control sorting. For this example
-                                // we can add them into the header props
                                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                                     {column.render('Header')}
-                                    {/* Add a sort direction indicator */}
                                     <span>
                                         {column.isSorted
                                             ? column.isSortedDesc
@@ -155,14 +149,6 @@ const TableReact = () => {
                         {'Next'}
                     </button>{' '}
                 </div>
-                {/* <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-                    {'<<'}
-                </button>{' '} */}
-
-                {/* <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-                    {'>>'}
-                </button>{' '} */}
-
             </div>
         </div>
     );

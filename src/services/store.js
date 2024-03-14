@@ -1,25 +1,29 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { mockEmployees } from '../data/mockEmployees'
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-let initialState = { listOfEmployees: mockEmployees };
+const persistConfig = {
+    key: 'root',
+    storage,
+};
+
+let initialState = { listOfEmployees: [] };
 
 function reducer(state = initialState, action) {
     switch (action.type) {
         case 'ADD_EMPLOYEE':
             const listWithNewEmployee = [...state.listOfEmployees, action.payload]
             return { ...state, listOfEmployees: listWithNewEmployee };
-        // case 'MODIFIER_PRENOM':
-        //     return { ...state, firstName: action.payload };
-        // case 'MODIFIER_TOKEN':
-        //     return { ...state, token: action.payload };
         default:
             return state;
     }
 }
 
+const persistedReducer = persistReducer(persistConfig, reducer);
+
 export const store = configureStore(
     {
         preloadedState: initialState,
-        reducer
+        reducer: persistedReducer
     }
 )
