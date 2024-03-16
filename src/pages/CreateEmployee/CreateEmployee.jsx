@@ -86,13 +86,13 @@ function CreateEmployee() {
                         <input id="city" type="text" onChange={(event) => { setCity(event.target.value) }} />
 
                         <label htmlFor="state">State</label>
-                        <Dropdown id="state" choices={onlyStates} values={abbreviations} />
+                        <Dropdown id="state" choices={onlyStates} values={abbreviations} className="dropdown" />
 
                         <label htmlFor="zip-code">Zip Code</label>
                         <input id="zip-code" type="number" onChange={(event) => { setZipCode(event.target.value) }} />
                     </fieldset>
                     <label htmlFor="department">Department</label>
-                    <Dropdown id="department" choices={departments} values={departments} />
+                    <Dropdown id="department" choices={departments} values={departments} className="dropdown" />
                 </form>
                 <button onClick={handleSubmit}>Save</button>
             </div>

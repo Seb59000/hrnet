@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { getEmployees } from '../../services/selectors'
 import React from 'react';
 import { useTable, usePagination, useGlobalFilter, useSortBy } from 'react-table';
+import DropDown from '../Dropdown/Dropdown'
 
 const columns = [
     {
@@ -76,18 +77,9 @@ const TableReact = () => {
     return (
         <div id="table-container">
             <div id="tool-container">
-                <span>Show <select
-                    value={pageSize}
-                    onChange={e => {
-                        setPageSize(Number(e.target.value))
-                    }}
-                >
-                    {[10, 25, 50, 100].map(pageSize => (
-                        <option key={pageSize} value={pageSize}>
-                            {pageSize}
-                        </option>
-                    ))}
-                </select> entries
+                <span>Show <DropDown choices={[10, 25, 50, 100]} values={[10, 25, 50, 100]} onChange={e => {
+                    setPageSize(Number(e.target.value))
+                }} /> entries
                 </span>
                 <input
                     type="text"

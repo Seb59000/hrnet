@@ -27,6 +27,24 @@ label {
     margin: auto;
 }
 
+.dropdown {
+    padding: .4em 1em;
+    position: relative;
+    line-height: normal;
+    cursor: pointer;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid #c5c5c5;
+    background: #f6f6f6;
+    text-align: left;
+    white-space: nowrap;
+    width: 14em;
+    display: block;
+    margin-right: 20px;
+    text-overflow: ellipsis;
+}
+
 table {
     width: 100%;
 }
