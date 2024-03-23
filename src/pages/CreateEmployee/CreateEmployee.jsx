@@ -2,7 +2,8 @@ import { useStore } from "react-redux";
 import { states } from '../../data/states.js';
 import { departments } from '../../data/departments.js';
 import React, { useState } from "react";
-import Dropdown from '../../components/Dropdown/Dropdown.jsx'
+// import Dropdown from '../../components/Dropdown/Dropdown.jsx'
+import { Dropdown } from 'select-seb59000'
 import NpmDatePicker from '../../components/DatePicker/DatePicker.jsx'
 import Modal from '../../components/Modal/Modal.jsx'
 import { Link } from 'react-router-dom'
@@ -86,13 +87,13 @@ function CreateEmployee() {
                         <input id="city" type="text" onChange={(event) => { setCity(event.target.value) }} />
 
                         <label htmlFor="state">State</label>
-                        <Dropdown id="state" choices={onlyStates} values={abbreviations} className="dropdown" />
+                        <Dropdown id="state" choices={onlyStates} values={abbreviations} classOfSelect="dropdown" />
 
                         <label htmlFor="zip-code">Zip Code</label>
                         <input id="zip-code" type="number" onChange={(event) => { setZipCode(event.target.value) }} />
                     </fieldset>
                     <label htmlFor="department">Department</label>
-                    <Dropdown id="department" choices={departments} values={departments} className="dropdown" />
+                    <Dropdown id="department" choices={departments} values={departments} classOfSelect="dropdown" />
                 </form>
                 <button onClick={handleSubmit}>Save</button>
             </div>
