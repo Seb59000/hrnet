@@ -11,7 +11,7 @@
 
 #modal {
     background: white;
-    border-radius: 2em;
+    border-radius: 1em;
     width: 25em;
     height: 10em;
     text-align: center;
@@ -19,4 +19,14 @@
 
 #modal p {
     margin-top: 18%;
+}
+
+#cross {
+    float: right;
+    background: black;
+    color: white;
+    padding: 0.5em 0.7em;
+    border-radius: 50%;
+    margin: -1em;
+    cursor: pointer;
 }
